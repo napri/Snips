@@ -214,6 +214,7 @@ Player.prototype.volumeRunter = function () {
     console.log(`player.volume: ${this.volume}`);
     console.log(`omx actual volume: ${this.actualVolume()}`);
     console.log(`muted: ${this.muted}`);
+    omx.open(this.videos[this.videoIndex].path, this.options);
     console.log('--------');
   };
   
