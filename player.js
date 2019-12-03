@@ -47,6 +47,7 @@ Player.prototype.start = function() {
 
         this.titelSchirm();
         console.log('start');
+        omx.open(this.videos[this.videoIndex].path, this.options);
 };
 
 
@@ -57,6 +58,7 @@ Player.prototype.titelSchirm = function () {
       this.playing = false;
       this.paused = false;
       this.muted = false;
+      omx.open(this.videos[this.videoIndex].path, this.options);
     }
  //   this.menu.removeMenu();
  //   this.menu.showMenu();
@@ -188,6 +190,7 @@ Player.prototype.volumeRunter = function () {
   };
 
   Player.prototype.listenOn = function () {
+    omx.open(this.videos[this.videoIndex].path, this.options);
     console.log('temporary decreasing volume to hear query');
     if (!(this.playing && !this.muted))
       return ;
