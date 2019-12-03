@@ -30,12 +30,12 @@ function Player(client){
     'playSong': this.tilelFinden.bind(this),
     'Arstistspielen': this.tilelFinden.bind(this),
     'Speakerhalten': this.pause.bind(this),
-    'KarokeWiederaufnahme': this.spielen.bind(this),
-    'KaraokeLautstaerkeerhoehen': this.volumHoch.bind(this),
-    'KaraokeLautstaerkereduziert': this.volumeRunter.bind(this),
-    'Naechste_Musik': this.naechsteMusik.bind(this),
-    'Karaokevorheriger_song': this.vorherigeMusik.bind(this),
-    'KaraokeToggleStummschaltung': this.stummSchalten.bind(this),
+    'Wiederaufnahme': this.spielen.bind(this),
+    'Lautstaerkeerhoehen': this.volumHoch.bind(this),
+    'Lautstaerkereduziert': this.volumeRunter.bind(this),
+    'Naechstesong': this.naechsteMusik.bind(this),
+    'vorherigersong': this.vorherigeMusik.bind(this),
+    'ToggleStummschaltung': this.stummSchalten.bind(this),
     'quit': omx.quit
 
     };
@@ -46,10 +46,12 @@ function Player(client){
 Player.prototype.start = function() {
 
         this.titelSchirm();
+        console.log('start');
 };
 
 
 Player.prototype.titelSchirm = function () {
+  console.log('Titelschirm');
     if (this.playing) {
       omx.quit();
       this.playing = false;
@@ -81,6 +83,7 @@ Player.prototype.tilelFinden = function (message) {
   };
 
 Player.prototype.titelSpielen = function () {
+  console.log('Titelspielen');
     if (this.playing)
       omx.quit();
     console.log('spielen ' + this.videos[this.videoIndex].path);
@@ -101,6 +104,7 @@ Player.prototype.titelSpielen = function () {
   };
 
   Player.prototype.spielen = function () {
+    console.log('spielen');
     if (!this.playing && this.paused)
     {
         omx.togglePlay();
@@ -110,6 +114,7 @@ Player.prototype.titelSpielen = function () {
   };
 
   Player.prototype.naechsteMusik = function () {
+    console.log('naechsteMusik');
     if (!this.playing)
       return ;
     if (this.videoIndex + 1 >= this.videos.length) {
@@ -121,6 +126,7 @@ Player.prototype.titelSpielen = function () {
   };
 
   Player.prototype.vorherigeMusik = function () {
+    console.log('vorherigeMusik');
     if (!this.playing)
       return ;
     if (this.videoIndex == 0) {
@@ -133,6 +139,7 @@ Player.prototype.titelSpielen = function () {
 
 
 Player.prototype.volumeRunter = function () {
+  console.log('volumeRunter');
     console.log('volume down');
     if (!this.playing) {
       return ;

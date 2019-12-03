@@ -13,16 +13,16 @@ client.on('connect', function () {
 	// Subscribe to intent topic
 	client.subscribe('hermes/dialogueManager/sessionEnded');
 
-	client.subscribe('hermes/intent/KaraokeLautstaerkeerhoehen');
-	client.subscribe('hermes/intent/Naechste_Musik');
+	client.subscribe('hermes/intent/Lautstaerkeerhoehen');
+	client.subscribe('hermes/intent/NaechsteMusik');
 	client.subscribe('hermes/intent/listSongs');
-	client.subscribe('hermes/intent/KarokeWiederaufnahme');
+	client.subscribe('hermes/intent/Wiederaufnahme');
 	client.subscribe('hermes/intent/playSong');
 	client.subscribe('hermes/intent/Speakerhalten');
 	client.subscribe('hermes/intent/Arstistspielen');
-	client.subscribe('hermes/intent/Karaokevorheriger_song');
-	client.subscribe('hermes/intent/KaraokeToggleStummschaltung');
-	client.subscribe('hermes/intent/KaraokeLautstaerkereduziert');
+	client.subscribe('hermes/intent/vorherigersong');
+	client.subscribe('hermes/intent/ToggleStummschaltung');
+	client.subscribe('hermes/intent/Lautstaerkereduziert');
 
 });
 
@@ -51,7 +51,7 @@ client.on('message', function (topic, message) {
 		client.publish('hermes/dialogueManager/endSession', payload);
 	}
 
-	setTimeout(player.logInfo.bind(player), 500);
+	setTimeout(player.logInfo.bind(player), 2000);
 });
 
 player.start();
