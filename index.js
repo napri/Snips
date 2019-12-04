@@ -33,7 +33,7 @@ client.on('message', function (topic, message) {
 
 		data = JSON.parse(message);
 		console.log(`received a message on topic ${topic}`);
-		action = topic;
+		action = topic.split('/').pop();
 		console.log(`action is ${action}`);
 
 	if (action == 'hermes/hotword/default/detected') {
