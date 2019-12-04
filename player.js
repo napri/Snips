@@ -26,16 +26,16 @@ function Player(client){
     this.actualVolume = omx.getCurrentVolume;
     this.methods = {
 
-    'listSongs': this.titelSchirm.bind(this),
-    'playSong': this.tilelFinden.bind(this),
+    'Listmusik': this.titelSchirm.bind(this),
+    'Titelspielen': this.tilelFinden.bind(this),
     'Arstistspielen': this.tilelFinden.bind(this),
-    'Speakerhalten': this.pause.bind(this),
-    'Wiederaufnahme': this.spielen.bind(this),
-    'Lautstaerkeerhoehen': this.volumHoch.bind(this),
-    'Lautstaerkereduziert': this.volumeRunter.bind(this),
-    'Naechstesong': this.naechsteMusik.bind(this),
-    'vorherigersong': this.vorherigeMusik.bind(this),
-    'ToggleStummschaltung': this.stummSchalten.bind(this),
+    'Musicbeenden': this.pause.bind(this),
+    'Resumemusik': this.spielen.bind(this),
+    'Volumeup': this.volumHoch.bind(this),
+    'Volumedown': this.volumeRunter.bind(this),
+    'Naechstemusik': this.naechsteMusik.bind(this),
+    'Vorherigemusik': this.vorherigeMusik.bind(this),
+    'Stummschalten': this.stummSchalten.bind(this),
     'quit': omx.quit
 
     };
@@ -190,7 +190,7 @@ Player.prototype.volumeRunter = function () {
   };
 
   Player.prototype.listenOn = function () {
-    omx.open(this.videos[this.videoIndex].path, this.options);
+   // omx.open(this.videos[this.videoIndex].path, this.options);
     console.log('temporary decreasing volume to hear query');
     if (!(this.playing && !this.muted))
       return ;
