@@ -40,9 +40,10 @@ client.on('message', function (topic, message) {
 			console.log("Hotword detected!");
 			player.listenOn();
 			
-    } else if (action == 'sessionEnded') {
-			player.listenOff();
-			console.log("SessionEnded!");
+    } else if (action == 'hermes/intent/Titelspielen') {
+			action = player.methods[action];
+			//player.listenOff();
+			console.log("SessionPlaying!");
     } else {
 		
 		payload = '{ "sessionId": "${data.sessionId}" }';
