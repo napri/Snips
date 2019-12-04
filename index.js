@@ -46,12 +46,15 @@ client.on('message', function (topic, message) {
 			console.log("SessionPlaying!");
     } else {
 		
-		payload = '{ "sessionId": "${data.sessionId}" }';
+		/*payload = '{ "sessionId": "${data.sessionId}" }';
 		action = player.methods[action];
 		if(action)
 		action(data);
 		console.log("Data Session!");
-		client.publish('hermes/dialogueManager/endSession', payload);
+		client.publish('hermes/dialogueManager/endSession', payload);*/
+		action = player.methods[action];
+			//player.listenOff();
+			console.log("SessionPlaying!");
 	}
 
 	setTimeout(player.logInfo.bind(player), 500);
