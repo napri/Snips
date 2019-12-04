@@ -26,12 +26,12 @@ client.on('connect', function () {
 
 });
 
-client.on('message', function (topic, message) {
-	let data,
+client.on('message', function (topic, data) {
+	let message,
 		payload,
 		action;
 
-		data = JSON.parse(message);
+		message = JSON.parse(data);
 		console.log(`received a message on topic ${topic}`);
 		action = topic.split('/').pop();
 		console.log(`action is ${action}`);
@@ -41,20 +41,17 @@ client.on('message', function (topic, message) {
 			player.listenOn();
 			
     } else if (action == 'hermes/intent/Titelspielen') {
-			action = player.methods[action];
-			//player.listenOff();
+			//action = player.methods[action];
+			player.tilelFinden();
 			console.log("SessionPlaying!");
     } else {
 		
-		/*payload = '{ "sessionId": "${data.sessionId}" }';
+		payload = '{ "sessionId": "${message.sessionId}" }';
 		action = player.methods[action];
 		if(action)
 		action(data);
 		console.log("Data Session!");
-		client.publish('hermes/dialogueManager/endSession', payload);*/
-		action = player.methods[action];
-			//player.listenOff();
-			console.log("SessionPlaying!");
+		client.publish('hermes/dialogueManager/endSession', payload);
 	}
 
 	setTimeout(player.logInfo.bind(player), 500);
