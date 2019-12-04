@@ -47,7 +47,7 @@ Player.prototype.start = function() {
 
         this.titelSchirm();
         console.log('start');
-        omx.open(this.videos[this.videoIndex].path, this.options);
+       // omx.open(this.videos[this.videoIndex].path, this.options);
 };
 
 
@@ -58,7 +58,7 @@ Player.prototype.titelSchirm = function () {
       this.playing = false;
       this.paused = false;
       this.muted = false;
-      omx.open(this.videos[this.videoIndex].path, this.options);
+      //omx.open(this.videos[this.videoIndex].path, this.options);
     }
  //   this.menu.removeMenu();
  //   this.menu.showMenu();
@@ -214,7 +214,7 @@ Player.prototype.volumeRunter = function () {
     console.log(`player.volume: ${this.volume}`);
     console.log(`omx actual volume: ${this.actualVolume()}`);
     console.log(`muted: ${this.muted}`);
-    omx.open(this.videos[this.videoIndex].path, this.options);
+    //omx.open(this.videos[this.videoIndex].path, this.options);
     console.log('--------');
   };
   
