@@ -47,10 +47,13 @@ client.on('message', function (topic, data) {
     } else {
 		
 		payload = '{ "sessionId": "${message.sessionId}" }';
-		action = player.methods[action];
+
+		player.tilelFinden();
+		console.log("SessionPlaying!");
+		/*action = player.methods[action];
 		if(action)
 		action(data);
-		console.log("Data Session!");
+		console.log("Data Session!");*/
 		client.publish('hermes/dialogueManager/endSession', payload);
 	}
 
