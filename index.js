@@ -26,35 +26,42 @@ client.on('connect', function () {
 
 });
 
-client.on('message', function (topic, data) {
-	let message,
-		payload,
-		action;
+client.on('message', function (topic, message) {
+		
+		var payload = JSON.parse(message);
+		var name = payload["intent"]["intentName"];
+		var slots = payload[slots];
 
-		message = JSON.parse(data);
 		console.log(`received a message on topic ${topic}`);
-		action = topic.split('/').pop();
-		console.log(`action is ${action}`);
 
-	if (action == 'hermes/hotword/default/detected') {
-			console.log("Hotword detected!");
-			player.listenOn();
+		//action = topic.split('/').pop();
+		//console.log(`action is ${action}`);
+
+	if (topic.startsWith('hermes/hotword/default/detected')) {
+		console.log("Hotword detected!");
+			//player.listenOn();
+
+		console.log(`Intent ${name} detected with slots ` +
+		`{JSON.stringify(slots)}`);
 			
-    } else if (action == 'hermes/intent/Titelspielen') {
+    } else if (topic.startsWith('hermes/intent/Titelspielen')) {
 			//action = player.methods[action];
 			player.tilelFinden();
-			console.log("SessionPlaying!");
+			
+			console.log(`Intent ${name} detected with slots ` +
+		`{JSON.stringify(slots)}`);
+
     } else {
 		
 		payload = '{ "sessionId": "${message.sessionId}" }';
 
-		player.tilelFinden();
-		console.log("SessionPlaying!");
-		/*action = player.methods[action];
-		if(action)
-		action(data);
-		console.log("Data Session!");*/
-		client.publish('hermes/dialogueManager/endSession', payload);
+		//player.tilelFinden();
+		//console.log("SessionPlaying!");
+		//action = player.methods[action];
+		//if(action)
+		//action(data);
+		console.log("Data Session!");
+		client.publish('hermes/dialogueManager/endSession', payload); 
 	}
 
 	setTimeout(player.logInfo.bind(player), 500);

@@ -66,12 +66,12 @@ Player.prototype.titelSchirm = function () {
   };
 
 
-Player.prototype.tilelFinden = function (message) {
+Player.prototype.tilelFinden = function (payload) {
     let value,
         video;
   
     try {
-      value = message.slots[0].value.value.toLowerCase();
+      value = payload.slots[0].value.value.toLowerCase();
     } catch (e) {
       console.log('error with the song name');
       return ;
