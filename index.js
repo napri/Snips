@@ -28,13 +28,16 @@ client.on('connect', function () {
 });
 
 client.on('message', function (topic, message) {
-		
+		let payload,
+			slots,
+			name,
+			action;
 		
 
-		let payload = JSON.parse(message);
-		let slots = payload[slots];
+	    payload = JSON.parse(message);
+		slots = payload[slots];
 		console.log(`received a message on topic ${topic}`);
-		let action = topic.split('/').pop();
+		action = topic.split('/').pop();
 		console.log(`action is ${action}`);
 
 	if (action == 'detected') {
@@ -43,7 +46,7 @@ client.on('message', function (topic, message) {
 			
     } else if (action == 'Titelspielen') {
 			console.log("Titelspielen!");	
-			let name = payload["intent"]["Princesse1999:Titelspielen"];
+			name = payload["intent"]["Princesse1999:Titelspielen"];
 
 			console.log(`Intent ${name} detected with slots ` + `{JSON.stringify(slots)}`);
 
