@@ -39,7 +39,7 @@ client.on('message', function (topic, message) {
 		console.log("Hotword detected!");
 			//player.listenOn();
 		var payload = JSON.parse(message);
-		var name = payload["intent"]["Listmusik"];
+		//var name = payload["intent"]["Listmusik"];
 		var slots = payload[slots];	
 
 		console.log(`Intent ${name} detected with slots ` +
@@ -48,7 +48,7 @@ client.on('message', function (topic, message) {
     } else if (topic.startsWith('hermes/intent/Titelspielen')) {
 			//action = player.methods[action];
 			var payload = JSON.parse(message);
-			var name = payload["intent"]["Titelspielen"];
+			//var name = payload["intent"]["Titelspielen"];
 			var slots = payload[slots];
 			player.tilelFinden();
 			
@@ -65,7 +65,7 @@ client.on('message', function (topic, message) {
 		//if(action)
 		//action(data);
 			var payload = JSON.parse(message);
-			var name = payload["intent"]["Arstistspielen"];
+			//var name = payload["intent"]["Arstistspielen"];
 			var slots = payload[slots];
 			player.tilelFinden();
 			
