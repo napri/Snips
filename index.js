@@ -30,43 +30,36 @@ client.on('message', function (topic, message) {
 		
 		
 
+		var payload = JSON.parse(message);
+		var slots = payload[slots];
 		console.log(`received a message on topic ${topic}`);
+		var action = topic.split('/').pop();
+		console.log(`action is ${action}`);
 
-		//action = topic.split('/').pop();
-		//console.log(`action is ${action}`);
-
-	if (topic.startsWith('hermes/hotword/default/detected')) {
+	if (action == 'detected') {
 		console.log("Hotword detected!");
 		player.listenOn();
-		var payload = JSON.parse(message);
-		var name = payload["intent"]["Princesse1999:Arstistspielen"];
-		var slots = payload[slots];	
-
-		console.log(`Intent ${name}detected with slots ` + `{JSON.stringify(slots)}`);
 			
-    } else if (topic.startsWith('hermes/intent/Titelspielen')) {
-			console.log("Titelspielen!");
-			//action = player.methods[action];
-			var payload = JSON.parse(message);
-			//var name = payload["intent"]["Titelspielen"];
-			var slots = payload[slots];
-			player.tilelFinden();
+    } else if (action == 'Titelspielen') {
+			console.log("Titelspielen!");	
+			var name = payload["intent"]["Princesse1999:Titelspielen"];
 			
-			console.log(`Intent detected with slots ` + `{JSON.stringify(slots)}`);
+			console.log(`Intent ${name} detected with slots ` + `{JSON.stringify(slots)}`);
 
     } else {
 		
 		payload = '{ "sessionId": "${message.sessionId}" }';
 
+
 		//player.tilelFinden();
 		//console.log("SessionPlaying!");
-		//action = player.methods[action];
+		action = player.methods[action];
 		//if(action)
 		//action(data);
-			var payload = JSON.parse(message);
+			//var payload = JSON.parse(message);
 			//var name = payload["intent"]["Arstistspielen"];
-			var slots = payload[slots];
-			player.tilelFinden();
+			//var slots = payload[slots];
+			//player.tilelFinden();
 			
 		//console.log(`Intent detected with slots ` + `{JSON.stringify(slots)}`);
 		console.log("Data Session!");
