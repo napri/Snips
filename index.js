@@ -28,9 +28,7 @@ client.on('connect', function () {
 
 client.on('message', function (topic, message) {
 		
-		var payload = JSON.parse(message);
-		var name = payload["intent"]["#"];
-		var slots = payload[slots];
+		
 
 		console.log(`received a message on topic ${topic}`);
 
@@ -40,12 +38,18 @@ client.on('message', function (topic, message) {
 	if (topic.startsWith('hermes/hotword/default/detected')) {
 		console.log("Hotword detected!");
 			//player.listenOn();
+		var payload = JSON.parse(message);
+		var name = payload["intent"]["#"];
+		var slots = payload[slots];	
 
 		console.log(`Intent ${name} detected with slots ` +
 		`{JSON.stringify(slots)}`);
 			
     } else if (topic.startsWith('hermes/intent/Titelspielen')) {
 			//action = player.methods[action];
+			var payload = JSON.parse(message);
+			var name = payload["intent"]["#"];
+			var slots = payload[slots];
 			player.tilelFinden();
 			
 			console.log(`Intent ${name} detected with slots ` +
@@ -60,6 +64,13 @@ client.on('message', function (topic, message) {
 		//action = player.methods[action];
 		//if(action)
 		//action(data);
+			var payload = JSON.parse(message);
+			var name = payload["intent"]["#"];
+			var slots = payload[slots];
+			player.tilelFinden();
+			
+			console.log(`Intent ${name} detected with slots ` +
+		`{JSON.stringify(slots)}`);
 		console.log("Data Session!");
 		client.publish('hermes/dialogueManager/endSession', payload); 
 	}
