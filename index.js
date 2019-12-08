@@ -53,8 +53,8 @@ client.on('message', function (topic, message) {
 	}else {
 		
 		payload = '{ "sessionId": "${message.sessionId}" }';
-		var name = payload["intent"]["Princesse1999:Titelspielen"];
-		console.log(`Intent ${name} detected with slots ` + `{JSON.stringify(slots)}`);
+		//var name = payload["intent"]["Princesse1999:Titelspielen"];
+		//console.log(`Intent ${name} detected with slots ` + `{JSON.stringify(slots)}`);
 
 		//player.tilelFinden();
 		//console.log("SessionPlaying!");
