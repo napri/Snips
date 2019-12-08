@@ -39,7 +39,7 @@ client.on('message', function (topic, message) {
 		console.log("Hotword detected!");
 			//player.listenOn();
 		var payload = JSON.parse(message);
-		//var name = payload["intent"]["Listmusik"];
+		var name = payload["intent"]['hermes/intent/Listmusik'];
 		var slots = payload[slots];	
 
 		console.log(`Intent ${name} detected with slots ` +
