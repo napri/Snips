@@ -29,7 +29,7 @@ client.on('connect', function () {
 client.on('message', function (topic, message) {
 		
 		var payload = JSON.parse(message);
-		var name = payload["intent"]["intentName"];
+		var name = payload["intent"]["#"];
 		var slots = payload[slots];
 
 		console.log(`received a message on topic ${topic}`);
