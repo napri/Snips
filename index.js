@@ -31,10 +31,10 @@ client.on('message', function (topic, message) {
 		
 		
 
-		var payload = JSON.parse(message);
-		var slots = payload[slots];
+		let payload = JSON.parse(message);
+		let slots = payload[slots];
 		console.log(`received a message on topic ${topic}`);
-		var action = topic.split('/').pop();
+		let action = topic.split('/').pop();
 		console.log(`action is ${action}`);
 
 	if (action == 'detected') {
@@ -43,7 +43,7 @@ client.on('message', function (topic, message) {
 			
     } else if (action == 'Titelspielen') {
 			console.log("Titelspielen!");	
-			var name = payload["intent"]["Princesse1999:Titelspielen"];
+			let name = payload["intent"]["Princesse1999:Titelspielen"];
 
 			console.log(`Intent ${name} detected with slots ` + `{JSON.stringify(slots)}`);
 
@@ -52,7 +52,7 @@ client.on('message', function (topic, message) {
 
 	}else {
 		
-		payload = '{ "sessionId": "${message.sessionId}" }';
+		payload1 = '{ "sessionId": "${message.sessionId}" }';
 		//var name = payload["intent"]["Princesse1999:Titelspielen"];
 		//console.log(`Intent ${name} detected with slots ` + `{JSON.stringify(slots)}`);
 
@@ -60,7 +60,7 @@ client.on('message', function (topic, message) {
 		//console.log("SessionPlaying!");
 		action = player.methods[action];
 		if(action)
-		  action(message);
+		  action(payload);
 			//var payload = JSON.parse(message);
 			//var name = payload["intent"]["Arstistspielen"];
 			//var slots = payload[slots];
@@ -68,7 +68,7 @@ client.on('message', function (topic, message) {
 			
 		//console.log(`Intent detected with slots ` + `{JSON.stringify(slots)}`);
 		console.log("Data Session!");
-		client.publish('hermes/dialogueManager/startSession', payload); 
+		client.publish('hermes/dialogueManager/startSession', payload1); 
 	}
 
 	setTimeout(player.logInfo.bind(player), 500);
