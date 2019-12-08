@@ -27,7 +27,7 @@ function Player(client){
     this.methods = {
 
     'Listmusik': this.titelSchirm.bind(this),
-    'Titelspielen': this.tilelFinden.bind(this),
+    'Princesse1999:Titelspielen': this.tilelFinden.bind(this),
     'Arstistspielen': this.tilelFinden.bind(this),
     'Musicbeenden': this.pause.bind(this),
     'Resumemusik': this.spielen.bind(this),
