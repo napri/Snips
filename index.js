@@ -13,17 +13,17 @@ client.on('connect', function () {
 	// Subscribe to intent topic
 	client.subscribe('hermes/dialogueManager/sessionEnded');
 
-	/*client.subscribe('hermes/intent/Volumeup');
-	client.subscribe('hermes/intent/Naechstemusik');
-	client.subscribe('hermes/intent/Listmusik');
-	client.subscribe('hermes/intent/Resumemusik');
-	client.subscribe('hermes/intent/Titelspielen');
-	client.subscribe('hermes/intent/Musicbeenden');
-	client.subscribe('hermes/intent/Arstistspielen');
-	client.subscribe('hermes/intent/Vorherigemusik');
-	client.subscribe('hermes/intent/Stummschalten');
-	client.subscribe('hermes/intent/Volumedown');*/
-	client.subscribe('hermes/intent/#');
+	client.subscribe('hermes/intent/Princesse1999:Volumeup');
+	client.subscribe('hermes/intent/Princesse1999:Naechstemusik');
+	client.subscribe('hermes/intent/Princesse1999:Listmusik');
+	client.subscribe('hermes/intent/Princesse1999:Resumemusik');
+	client.subscribe('hermes/intent/Princesse1999:Titelspielen');
+	client.subscribe('hermes/intent/Princesse1999:Musicbeenden');
+	client.subscribe('hermes/intent/Princesse1999:Arstistspielen');
+	client.subscribe('hermes/intent/Princesse1999:Vorherigemusik');
+	client.subscribe('hermes/intent/Princesse1999:Stummschalten');
+	client.subscribe('hermes/intent/Princesse1999:Volumedown');
+	//client.subscribe('hermes/intent/#');
 
 });
 
@@ -43,34 +43,15 @@ client.on('message', function (topic, message) {
 	if (action == 'detected') {
 		console.log("Hotword detected!");
 		player.listenOn();
-			
-    } else if (action == 'Titelspielen') {
-			console.log("Titelspielen!");	
-			name = payload["intent"]["Princesse1999:Titelspielen"];
-
-			console.log(`Intent ${name} detected with slots ` + `{JSON.stringify(slots)}`);
-
 	} else if (action == 'sessionEnded'){
 		player.listenOff();
 
 	}else {
 		
 		payload1 = '{ "sessionId": "${message.sessionId}" }';
-		//var name = payload["intent"]["Princesse1999:Titelspielen"];
-		//console.log(`Intent ${name} detected with slots ` + `{JSON.stringify(slots)}`);
-
-		//player.tilelFinden();
-		//console.log("SessionPlaying!");
 		action = player.methods[action];
 		if(action)
-		  action(payload);
-			//var payload = JSON.parse(message);
-			//var name = payload["intent"]["Arstistspielen"];
-			//var slots = payload[slots];
-			//player.tilelFinden();
-			
-		//console.log(`Intent detected with slots ` + `{JSON.stringify(slots)}`);
-		console.log("Data Session!");
+		  action(payload);	
 		client.publish('hermes/dialogueManager/startSession', payload1); 
 	}
 

@@ -26,16 +26,16 @@ function Player(client){
     this.actualVolume = omx.getCurrentVolume;
     this.methods = {
 
-    'Listmusik': this.titelSchirm.bind(this),
+    'Princesse1999:Listmusik': this.titelSchirm.bind(this),
     'Princesse1999:Titelspielen': this.tilelFinden.bind(this),
-    'Arstistspielen': this.tilelFinden.bind(this),
-    'Musicbeenden': this.pause.bind(this),
-    'Resumemusik': this.spielen.bind(this),
-    'Volumeup': this.volumHoch.bind(this),
-    'Volumedown': this.volumeRunter.bind(this),
-    'Naechstemusik': this.naechsteMusik.bind(this),
-    'Vorherigemusik': this.vorherigeMusik.bind(this),
-    'Stummschalten': this.stummSchalten.bind(this),
+    'Princesse1999:Arstistspielen': this.tilelFinden.bind(this),
+    'Princesse1999:Musicbeenden': this.pause.bind(this),
+    'Princesse1999:Resumemusik': this.spielen.bind(this),
+    'Princesse1999:Volumeup': this.volumHoch.bind(this),
+    'Princesse1999:Volumedown': this.volumeRunter.bind(this),
+    'Princesse1999:Naechstemusik': this.naechsteMusik.bind(this),
+    'Princesse1999:Vorherigemusik': this.vorherigeMusik.bind(this),
+    'Princesse1999:Stummschalten': this.stummSchalten.bind(this),
     'quit': omx.quit
 
     };
