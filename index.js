@@ -43,19 +43,23 @@ client.on('message', function (topic, message) {
     } else if (action == 'Titelspielen') {
 			console.log("Titelspielen!");	
 			var name = payload["intent"]["Princesse1999:Titelspielen"];
-			
+
 			console.log(`Intent ${name} detected with slots ` + `{JSON.stringify(slots)}`);
 
-    } else {
+	} else if (action == 'sessionEnded'){
+		player.listenOff();
+
+	}else {
 		
 		payload = '{ "sessionId": "${message.sessionId}" }';
-
+		var name = payload["intent"]["Princesse1999:Titelspielen"];
+		console.log(`Intent ${name} detected with slots ` + `{JSON.stringify(slots)}`);
 
 		//player.tilelFinden();
 		//console.log("SessionPlaying!");
 		action = player.methods[action];
-		//if(action)
-		//action(data);
+		if(action)
+		  action(message);
 			//var payload = JSON.parse(message);
 			//var name = payload["intent"]["Arstistspielen"];
 			//var slots = payload[slots];
