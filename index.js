@@ -13,7 +13,7 @@ client.on('connect', function () {
 	// Subscribe to intent topic
 	client.subscribe('hermes/dialogueManager/sessionEnded');
 
-	client.subscribe('hermes/intent/Volumeup');
+	/*client.subscribe('hermes/intent/Volumeup');
 	client.subscribe('hermes/intent/Naechstemusik');
 	client.subscribe('hermes/intent/Listmusik');
 	client.subscribe('hermes/intent/Resumemusik');
@@ -22,7 +22,8 @@ client.on('connect', function () {
 	client.subscribe('hermes/intent/Arstistspielen');
 	client.subscribe('hermes/intent/Vorherigemusik');
 	client.subscribe('hermes/intent/Stummschalten');
-	client.subscribe('hermes/intent/Volumedown');
+	client.subscribe('hermes/intent/Volumedown');*/
+	client.subscribe('hermes/intent/#');
 
 });
 
@@ -67,7 +68,7 @@ client.on('message', function (topic, message) {
 			
 		//console.log(`Intent detected with slots ` + `{JSON.stringify(slots)}`);
 		console.log("Data Session!");
-		client.publish('hermes/dialogueManager/endSession', payload); 
+		client.publish('hermes/dialogueManager/startSession', payload); 
 	}
 
 	setTimeout(player.logInfo.bind(player), 500);
