@@ -1,9 +1,10 @@
 [Unit]
 Description=Concierge
+After=multi-user.target
+
 [Service]
 Type=simple
-User=%i
-ExecStartPre=/bin/sleep 2
 ExecStart=/usr/bin/node /var/lib/snips/skills/Snips/index.js
+
 [Install]
 WantedBy=multi-user.target

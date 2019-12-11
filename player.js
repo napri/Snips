@@ -15,6 +15,8 @@ function Player(client){
     this.options = {
         AudioOutput : 'both',
         blackBackground:true,
+        disableKeys:true,
+        disableOnScreenDisplay:true
     };
     this.finder = new Finder(client, homedir);
     this.videos = this.finder.getTitles();
@@ -88,6 +90,10 @@ Player.prototype.titelSpielen = function () {
       omx.quit();
     console.log('spielen ' + this.videos[this.videoIndex].path);
     omx.open(this.videos[this.videoIndex].path, this.options);
+    omx.onProgress(function(track){ //subscribe for track updates (every second while not paused for now)
+      console.log(track.position);
+      console.log(track.duration);
+  });
     omx.setVolume(this.volume);
     this.muted = false;
     this.playing = true;
@@ -97,7 +103,7 @@ Player.prototype.titelSpielen = function () {
   Player.prototype.pause = function () {
     if ((this.playing && !this.paused))
     {
-        omx.togglePlay();
+        omx.pause();
         this.paused = true;
     }
      return ; 
@@ -107,7 +113,7 @@ Player.prototype.titelSpielen = function () {
     console.log('spielen');
     if (!this.playing && this.paused)
     {
-        omx.togglePlay();
+        omx.play();
         this.paused = false;
     }
     return ;
