@@ -1,7 +1,7 @@
 {
-  "name": "snips_action",
+  "name": "Snips",
   "version": "1.0.0",
-  "description": "Snips Karaoke App",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,12 +10,15 @@
     "type": "git",
     "url": "git+https://github.com/napri/Snips.git"
   },
+  "keywords": [],
   "author": "Patricia",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/napri/Snips/issues"
+  },
+  "homepage": "https://github.com/napri/Snips#readme",
   "dependencies": {
     "mqtt": "^3.0.0",
-    "omx-interface": "git+https://git@github.com/snipsco-forks/node-omx-interface.git",
-    "pureimage": "0.1.6"
-  },
-  "homepage": "https://github.com/napri/Snips#readme"
+    "omx-interface": "git+https://git@github.com/snipsco-forks/node-omx-interface.git"	
+  }
 }
