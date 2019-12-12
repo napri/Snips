@@ -1,6 +1,5 @@
 'use strict'
 
-var Omx = require('node-omxplayer')
 var omx =  require('omx-interface');
 var Finder = require('./finder.js');
 var homedir = require('os').homedir();
