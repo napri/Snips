@@ -24,8 +24,8 @@ function Menu(homeDir) {
 	this.homeDir = homeDir;
 	this.menuPath = homeDir + '/var/lib/snips/skills/Snips/menu.jpg';
 	this.loadingPath = homeDir + '/var/lib/snips/skills/Snips/loading.jpg';
-	if (!fs.existsSync(homeDir + '/var/lib/snips/skills/Snips/karaoke_menu'))
-		fs.mkdirSync(homeDir + '/var/lib/snips/skills/Snips/karaoke_menu');
+	//if (!fs.existsSync(homeDir + '/var/lib/snips/skills/Snips/karaoke_menu'))
+    //		fs.mkdirSync(homeDir + '/var/lib/snips/skills/Snips/karaoke_menu');
 	this.showLoading();
 }
 
