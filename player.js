@@ -13,7 +13,7 @@ const VOLUME_INITIAL = .5,
 function Player(client){
         this.client = client;
     this.options = {
-        AudioOutput : 'both',
+        AudioOutput : 'alsa[:device]',
         blackBackground:true,
         disableKeys:true,
         disableOnScreenDisplay:true
