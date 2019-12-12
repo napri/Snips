@@ -17,5 +17,9 @@
     "omx-interface": "git+https://git@github.com/snipsco-forks/node-omx-interface.git",
     "pureimage": "0.1.6"
   },
-  "homepage": "https://github.com/napri/Snips#readme"
+  "homepage": "https://github.com/napri/Snips#readme",
+  "bugs": {
+    "url": "https://github.com/napri/Snips/issues"
+  },
+  "devDependencies": {}
 }

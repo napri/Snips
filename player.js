@@ -1,5 +1,6 @@
 'use strict'
 
+var Omx = require('node-omxplayer')
 var omx =  require('omx-interface');
 var Finder = require('./finder.js');
 var homedir = require('os').homedir();
@@ -13,7 +14,7 @@ const VOLUME_INITIAL = .5,
 function Player(client){
         this.client = client;
     this.options = {
-        AudioOutput : 'alsa[:device]',
+        AudioOutput : 'alsa',
         blackBackground:true,
         disableKeys:true,
         disableOnScreenDisplay:true
