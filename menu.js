@@ -22,16 +22,16 @@ function Menu(homeDir) {
   this.imageProcess = null;
   this.loadingProcess = null;
 	this.homeDir = homeDir;
-	this.menuPath = homeDir + ' /var/lib/snips/skills/Snips/menu.jpg';
-	this.loadingPath = homeDir + ' /var/lib/snips/skills/Snips/loading.jpg';
-	//if (!fs.existsSync(homeDir + '/var/lib/snips/skills/Snips/karaoke_menu'))
-    //		fs.mkdirSync(homeDir + '/var/lib/snips/skills/Snips/karaoke_menu');
+	this.menuPath = homeDir + '/karaoke_menu/menu.jpg';
+	this.loadingPath = homeDir + '/karaoke_menu/loading.jpg';
+	if (!fs.existsSync(homeDir + '/karaoke_menu'))
+    		fs.mkdirSync(homeDir + '/karaoke_menu');
 	this.showLoading();
 }
 
 Menu.prototype.writeTitles = async function(videos) {
 	try {
-		this.image = await PImage.decodeJPEGFromStream(fs.createReadStream(this.homeDir + '/var/lib/snips/skills/Snips/blank_menu.jpg'));
+		this.image = await PImage.decodeJPEGFromStream(fs.createReadStream(this.homeDir + '/karaoke_menu/blank_menu.jpg'));
 		this.context = this.image.getContext('2d');
 		this.font = await PImage.registerFont('./' + FONT + '.ttf', FONT);
 		await new Promise((resolve) => {
