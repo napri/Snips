@@ -32,7 +32,7 @@ getplaystatus)
   ;;
 
 getvolume)
-  volume=`dbus-send --print-reply=double --session --reply-timeout=500 --dest=org.mpris.MediaPlayer2.omxplayer /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Volume`
+  volume=`dbus-send --print-reply=literal --session --reply-timeout=500 --dest=org.mpris.MediaPlayer2.omxplayer /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Volume`
   [ $? -ne 0 ] && exit 1
   volume="$(awk '{print $2}' <<< "$volume")"
   echo $volume
