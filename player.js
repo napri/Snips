@@ -67,6 +67,7 @@ Player.prototype.titelSchirm = function () {
     }
     this.menu.removeMenu();
     this.menu.showMenu();
+    this.menu.writeTitles();
     this.videoIndex = 0;
   };
 
