@@ -1,9 +1,11 @@
 const fs = require('fs');
 
 const regEx = /^[A-Za-z1-9\. '&]* - [A-Za-z1-9\. '&]*\.mp4$/;
+const homed = '/var/lib/snips/skills/Snips';
 
 function Finder(client, homedir) {
-	this.videoPath = homedir + '/karaoke_videos';
+	
+	this.videoPath = homed + '/karaoke_videos';
 	this.videos = null;
 	this.client = client;
 	if (!fs.existsSync(this.videoPath))
