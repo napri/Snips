@@ -2,7 +2,7 @@
 
 var omx =  require('omx-interface');
 var Finder = require('./finder.js');
-const Menu = require('./menu.js');
+//const Menu = require('./menu.js');
 var homedir = require('os').homedir();
 
 const VOLUME_INITIAL = .5,
@@ -19,7 +19,7 @@ function Player(client){
         disableKeys:true,
         disableOnScreenDisplay:true
     };
-    this.menu = new Menu(homedir);
+    //this.menu = new Menu(homedir);
     this.finder = new Finder(client, homedir);
     this.videos = this.finder.getTitles();
     this.videoIndex = 0;
@@ -48,12 +48,12 @@ function Player(client){
 
 
 Player.prototype.start = function() {
-    this.menu.writeTitles(this.videos)
-      .then(() => {
+    //this.menu.writeTitles(this.videos)
+    //  .then(() => {
         this.titelSchirm();
         console.log('start');
-        this.menu.removeLoading();
-      });
+        //this.menu.removeLoading();
+     // });
 };
 
 
@@ -65,9 +65,9 @@ Player.prototype.titelSchirm = function () {
       this.paused = false;
       this.muted = false;
     }
-    this.menu.removeMenu();
-    this.menu.showMenu();
-    this.menu.writeTitles();
+   // this.menu.removeMenu();
+   // this.menu.showMenu();
+   // this.menu.writeTitles();
     this.videoIndex = 0;
   };
 
