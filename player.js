@@ -119,8 +119,9 @@ Player.prototype.titelSpielen = function () {
     console.log('spielen');
     if (!this.playing && this.paused)
     {
-        omx.play();
+        omx.togglePlay();
         this.paused = false;
+        this.playing = true;
     }
     return ;
   };
