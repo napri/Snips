@@ -32,14 +32,19 @@ Finder.prototype.importTitles = function () {
 
 Finder.prototype.injectTitles = function () {
 	let payload = { "operations": [["add"]] },
-		addition = {};
+		addition = {song_name: [], artist_name: [] };
 
-	addition.song_name = [];
-	addition.artist_name = [];
-	for (var i = 0; i < this.videos.length; i++) {
+
+	/*for (var i = 0; i < this.videos.length; i++) {
 		addition.song_name.push(this.videos[i].title);
 		addition.artist_name.push(this.videos[i].artist);
-	}
+	}*/
+
+	this.videos.forEach((element) => {
+		addition.song_name.push(element.title);
+		addition.artist_name.push(element.artist)
+	});
+
 	payload.operations[0].push(addition);
 	payload = JSON.stringify(payload);
 	console.log(payload);
