@@ -111,6 +111,7 @@ Player.prototype.titelSpielen = function () {
     {
         omx.pause();
         this.paused = true;
+        this.playing = false;
     }
      return ; 
   };
@@ -119,7 +120,7 @@ Player.prototype.titelSpielen = function () {
     console.log('spielen');
     if (!this.playing && this.paused)
     {
-        omx.togglePlay();
+        omx.play();
         this.paused = false;
         this.playing = true;
     }
